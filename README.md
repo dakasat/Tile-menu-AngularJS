@@ -1,2 +1,2 @@
-# tile-menu-angylarjs
-Адаптивное меню, angularjs
+# sass-start-boot
+Стартовый шаблон - scss - redpony

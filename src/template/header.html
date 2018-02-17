@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+<div class="wrapper">
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__left">
+                <span ng-click="mobmenu = !mobmenu" class="sandwich-menu" id="js-toggle-menu"><i class="material-icons">menu</i></span>
+                <a href="#" class="header__logo"><img src="img/logo.png" alt="logo"></a>
+
+                <div ng-show="searchshow" class="header__nav-inner">
+                    <div class="header__nav">
+                        <ul ng-class="{popup__show: mobmenu}" class="header__links" id="header-links">
+                            <li><a href="#"><span>Ссылки</span><i class="material-icons material-icons--triangle">arrow_drop_down</i></a></li>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#"><span>Теги</span><i class="material-icons material-icons--triangle">arrow_drop_down</i></a></li>
+                            <li><a href="#"><span>Просьбы</span><i class="material-icons material-icons--triangle">arrow_drop_down</i></a></li>
+                            <li><a href="#"><span>Избранное</span><i class="material-icons material-icons--triangle">arrow_drop_down</i></a></li>
+                            <li><a href="#"><span>Посещения</span><i class="material-icons material-icons--triangle">arrow_drop_down</i></a></li>
+                        </ul>
+                        <a ng-click="searchshow = !searchshow" class="header__element-search" href="#"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+
+                <div ng-hide="searchshow" class="header__nav-search">
+                    <form action="#" class="header-form">
+                        <span class="input-decor"><i class="material-icons material-icons--decor">search</i></span>
+                        <input ng-focus="focussearch = true" ng-model="input" type="text" class="header-input">
+                        <button ng-click="searchshow = !searchshow; focussearch = false" type="reset" class="header-reset"><i class="material-icons material-icons--reset">close</i>
+                        </button>
+                        <button ng-click="add()" type="submit" class="header-submit">Найти</button>
+                    </form>
+                    <div ng-show="focussearch" class="filters">
+                        <form action="#">
+                            <div class="filters-first-line">
+                                <input type="checkbox" id="my" name="my" value="my" class="checkbox">
+                                <label for="my" class="checkbox__label checkbox__label--first">мои</label>
+                                <input type="text">
+                            </div>
+                            <div class="filters-second-line">
+                                <label for="sorter">Сортировать по:</label><select name="sorter" id="sorter">
+                                <option value="1">дате</option>
+                                <option value="2">релевантности</option>
+                            </select>
+                            </div>
+                            <div class="filters-third-line">
+
+
+                                <input type="checkbox" id="participant" name="participant" value="participant"
+                                       class="checkbox">
+                                <label for="participant" class="checkbox__label">я участник</label>
+                                <input type="checkbox" id="inTheTitle" name="inthetitle" value="inthetitle"
+                                       class="checkbox">
+                                <label for="inTheTitle" class="checkbox__label">в заголовке</label>
+                                <input type="checkbox" id="strictSearch" name="strictsearch" value="strictsearch"
+                                       class="checkbox">
+                                <label for="strictSearch" class="checkbox__label">строгий поиск</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+
+
+
+
+
+            <div class="header__right">
+                <div class="header__right--left">
+                <a class="header__element-add" href="#"><i class="material-icons">add_circle</i></a>
+                </div>
+                <div class="header__right--right">
+                <a class="header__element-mail" href=""><i class="material-icons">mail_outline</i></a>
+                <a class="header__element-not" href=""><i class="material-icons">notifications_none</i></a>
+                <a class="header__element-user" href=""><span><img src="img/user.png" alt=""></span></a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="content">
+        <ul class="result">
+            <li ng-repeat="text in texts">{{text}}</li>
+        </ul>
+
+
+
